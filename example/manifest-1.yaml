@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: datastream
+  labels:
+    kubernetes.io/metadata.name: datastream
+spec:
+  finalizers:
+  - kubernetes
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: datastream-redpandaapi-test
+  namespace: datastream
+  labels:
+    env: test
+    project: datastream
+    service: redpandaapi
+spec:
+  clusterIP: None
+  clusterIPs:
+  - None
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 9092
+    protocol: TCP
+    targetPort: 9092
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: datastream-redpandaapi-test
+  namespace: datastream
+  labels:
+    env: test
+    project: datastream
+    service: redpandaapi
+subsets:
+- addresses:
+  - ip: 10.10.2.6
+  - ip: 10.10.2.7
+  - ip: 10.10.2.8
+  ports:
+  - port: 9092
+    protocol: TCP
+---
