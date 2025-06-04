@@ -3,7 +3,7 @@
 ![HELASEID Logo](./logo/helaseid-logo.png)
 
 ## Overview
-HELASEID (Headless Automatic Service Discovery) is a lightweight, containerized BASH-based solution for dynamically updating Kubernetes endpoints for headless services. It continuously monitors the health of service instances and updates the corresponding Kubernetes `Endpoints` object accordingly.
+HELASEID (Headless Automatic Service Discovery) is a lightweight, containerized Python-based solution for dynamically updating Kubernetes endpoints for headless services. It continuously monitors the health of service instances and updates the corresponding Kubernetes `Endpoints` object accordingly.
 
 The name **HELASEID** is inspired by two powerful supervillains:
 - **Hela** (Marvel) : Beautiful yet resourceful.
