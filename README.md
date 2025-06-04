@@ -1,4 +1,4 @@
-# HELASEID - Headless Automatic Service Discovery Â© by [G. Ginanjar](https://github.com/gitaginanjar)
+# HELASEID - Headless Automatic Service Discovery © by [G. Ginanjar](https://github.com/gitaginanjar)
 
 ![HELASEID Logo](./logo/helaseid-logo.png)
 
@@ -96,6 +96,7 @@ docker run --rm -e IPS="10.188.2.3 10.188.2.4" -e PORT=9092 helaseid
 - Support for multi-cluster service discovery.
 - Dynamic IP retrieval via Kubernetes API.
 - Metrics export for Prometheus integration.
+- Support multi-zone/multi-region discovery with dynamic preferences and master pinning.
 
 ## Author
 - [G. Ginanjar](https://github.com/gitaginanjar).
