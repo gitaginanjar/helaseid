@@ -58,7 +58,7 @@ function Function_log() {
     timestamp=$(Function_get_timestamp)
     # Only log messages if the level is DEBUG or the log level is INFO but message is EVENT/ERROR
     if [[ "$LOG_LEVEL" == "DEBUG" || "$level" == "EVENT" || "$level" == "INFO" || "$level" == "ERROR" ]]; then
-        echo "{\"timestamp\": \"$timestamp\", \"level\": \"$level\", \"message\": \"$message\"}"
+        echo "{\"helaseid\": \"helaseid\", \"timestamp\": \"$timestamp\", \"level\": \"$level\", \"message\": \"$message\"}"
         if [[ "$NOTIFICATION_ENABLED" == "true" && ("$level" == "ERROR" || "$level" == "EVENT") ]]; then
             Function_send_teams_notification "$level" "$message"
         fi
