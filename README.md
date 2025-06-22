@@ -60,7 +60,7 @@ data:
     IPS=("10.188.2.3" "10.188.2.4" "10.188.2.5")
     PORT=9092
     MAX_RETRY=10
-    DELAY=0.01
+    INTERVAL=0.01
     LOG_LEVEL=INFO
     NAMESPACE=datastream
     SERVICE_NAME=datastream-redpanda-api-dev
@@ -68,7 +68,7 @@ data:
 - `IPS` - List of service instance IPs to monitor.
 - `PORT` - Service port to check health.
 - `MAX_RETRY` - Maximum retries before marking unhealthy.
-- `DELAY` - Delay between health checks.
+- `INTERVAL` - Interval between health checks.
 - `LOG_LEVEL` - Logging verbosity (`DEBUG`, `INFO`, `ERROR`).
 - `NAMESPACE` - Kubernetes namespace.
 - `SERVICE_NAME` - Kubernetes service name.
