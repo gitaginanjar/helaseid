@@ -34,7 +34,7 @@ function Function_send_teams_notification() {
     local message="$2"
     if [[ -n "$TEAMS_WEBHOOK_URL" ]]; then
         json_payload=$(jq -n \
-            --arg title "Ã°Å¸â€â€ Health Check Notification" \
+            --arg title "Health Check Notification" \
             --arg level "$level" \
             --arg message "$message" \
             --arg timestamp "$(date '+%Y-%m-%d %H:%M:%S')" \
@@ -58,7 +58,7 @@ function Function_log() {
     timestamp=$(Function_get_timestamp)
     # Only log messages if the level is DEBUG or the log level is INFO but message is EVENT/ERROR
     if [[ "$LOG_LEVEL" == "DEBUG" || "$level" == "EVENT" || "$level" == "INFO" || "$level" == "ERROR" ]]; then
-        echo "{\"timestamp\": \"$timestamp\", \"level\": \"$level\", \"message\": \"$message\"}"
+        echo "{\"helaseid\": \"helaseid\", \"timestamp\": \"$timestamp\", \"level\": \"$level\", \"message\": \"$message\"}"
         if [[ "$NOTIFICATION_ENABLED" == "true" && ("$level" == "ERROR" || "$level" == "EVENT") ]]; then
             Function_send_teams_notification "$level" "$message"
         fi
@@ -115,7 +115,7 @@ fi
 
 Function_log "INFO" "LOG_LEVEL            : $LOG_LEVEL"
 Function_log "INFO" "PORT                 : $PORT"
-Function_log "INFO" "DELAY                : $DELAY"
+Function_log "INFO" "INTERVAL             : $INTERVAL"
 Function_log "INFO" "MAX_RETRY            : $MAX_RETRY"
 Function_log "INFO" "SERVICE_NAME         : $SERVICE_NAME"
 Function_log "INFO" "NAMESPACE            : $NAMESPACE"
@@ -137,6 +137,6 @@ while true; do
     done
 
     Function_update_endpoints
-    Function_log "DEBUG" "Sleeping for $DELAY seconds..."
-    sleep "$DELAY" || Function_log "ERROR" "Sleep interrupted!"
+    Function_log "DEBUG" "Sleeping for $INTERVAL seconds..."
+    sleep "$INTERVAL" || Function_log "ERROR" "Sleep interrupted!"
 done
