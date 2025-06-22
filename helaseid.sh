@@ -34,7 +34,7 @@ function Function_send_teams_notification() {
     local message="$2"
     if [[ -n "$TEAMS_WEBHOOK_URL" ]]; then
         json_payload=$(jq -n \
-            --arg title "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Â Health Check Notification" \
+            --arg title "Health Check Notification" \
             --arg level "$level" \
             --arg message "$message" \
             --arg timestamp "$(date '+%Y-%m-%d %H:%M:%S')" \
@@ -115,7 +115,7 @@ fi
 
 Function_log "INFO" "LOG_LEVEL            : $LOG_LEVEL"
 Function_log "INFO" "PORT                 : $PORT"
-Function_log "INFO" "DELAY                : $DELAY"
+Function_log "INFO" "INTERVAL             : $INTERVAL"
 Function_log "INFO" "MAX_RETRY            : $MAX_RETRY"
 Function_log "INFO" "SERVICE_NAME         : $SERVICE_NAME"
 Function_log "INFO" "NAMESPACE            : $NAMESPACE"
@@ -137,6 +137,6 @@ while true; do
     done
 
     Function_update_endpoints
-    Function_log "DEBUG" "Sleeping for $DELAY seconds..."
-    sleep "$DELAY" || Function_log "ERROR" "Sleep interrupted!"
+    Function_log "DEBUG" "Sleeping for $INTERVAL seconds..."
+    sleep "$INTERVAL" || Function_log "ERROR" "Sleep interrupted!"
 done
