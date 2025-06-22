@@ -34,7 +34,7 @@ function Function_send_teams_notification() {
     local message="$2"
     if [[ -n "$TEAMS_WEBHOOK_URL" ]]; then
         json_payload=$(jq -n \
-            --arg title "Ã°Å¸â€â€ Health Check Notification" \
+            --arg title "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Â Health Check Notification" \
             --arg level "$level" \
             --arg message "$message" \
             --arg timestamp "$(date '+%Y-%m-%d %H:%M:%S')" \
